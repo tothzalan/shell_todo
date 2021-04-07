@@ -1,7 +1,7 @@
 #!/bin/sh
 
 read_in() {
-    echo "\e[1;32mDone items:\e[0m"
+    printf "\e[1;32mDone items:\e[0m\n"
     while read x
     do
         check_done "$x"
@@ -10,7 +10,7 @@ read_in() {
         fi 
     done < $1
 
-    echo "\e[1;31mItems to do:\e[0m"
+    printf "\e[1;31mItems to do:\e[0m\n"
     while read x
     do
         check_done "$x"

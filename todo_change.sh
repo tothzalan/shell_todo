@@ -11,7 +11,11 @@ else
         INDEX=$((INDEX+1))
     done < $1
 
-    echo -n "Which line to change? "
+    printf "Which line to change? "
     read n
-    sed -i "${n}s/\[.]/[✓]/" $1
+    if [ "$(uname)" = 'Darwin' ]; then
+        sed -i '' -e "${n}s/\[.]/[✓]/" $1
+    else
+        sed -i "${n}s/\[.]/[✓]/" $1
+    fi
 fi
